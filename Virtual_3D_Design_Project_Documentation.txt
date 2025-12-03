@@ -180,3 +180,4 @@ PROJECT STATISTICS
 - Deployment: Cloud-native with Docker support
 
 This documentation provides a comprehensive overview of the Virtual 3D Design Platform project, covering all aspects from motivation and objectives to technical implementation and future outcomes.
+
