@@ -1641,7 +1641,6 @@ export default function Create() {
   //       return []
   //     }
   //   }
-  //   listAvailableModels('AIzaSyDp4fKdRPIiGIKMopYbVz31lI0j00Rn7lM')
   // }, [])
 
   const tools = [
