@@ -1626,23 +1626,6 @@ export default function Create() {
     return () => window.removeEventListener('resize', onResize)
   }, [])
 
-  // Expose debug function to window for console access
-  // useEffect(() => {
-  //   const listAvailableModels = async (apiKey) => {
-  //     try {
-  //       const response = await fetch(
-  //         `https://generativelanguage.googleapis.com/v1/models?key=${apiKey}`
-  //       )
-  //       const data = await response.json()
-  //       console.log('Available models:', data.models?.map(m => m.name))
-  //       return data.models
-  //     } catch (err) {
-  //       console.error('Failed to list models:', err)
-  //       return []
-  //     }
-  //   }
-  // }, [])
-
   const tools = [
     { id: 'select', name: 'Select', icon: MousePointer, category: 'basic' },
     { id: 'wall', name: 'Wall', icon: Rectangle, category: 'drawing' },
