@@ -36,7 +36,8 @@ const allowedOrigins = [
   'http://localhost:5173',
   'http://localhost:5174',
   'http://localhost:3000',
-  'https://designspace3d.netlify.app'
+  'https://designspace3d.netlify.app',
+  'https://extraordinary-rabanadas-2cad3c.netlify.app'
 ];
 
 app.use(cors({
