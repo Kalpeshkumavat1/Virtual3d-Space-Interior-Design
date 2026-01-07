@@ -363,14 +363,14 @@ async function seedDatabase() {
       useUnifiedTopology: true,
     });
 
-    console.log('Connected to MongoDB');
+    // console.log('Connected to MongoDB');
 
     // Clear existing data
     await User.deleteMany({});
     await Furniture.deleteMany({});
     await Template.deleteMany({});
 
-    console.log('Cleared existing data');
+    // console.log('Cleared existing data');
 
     // Create sample users
     const users = [];
@@ -378,7 +378,7 @@ async function seedDatabase() {
       const user = new User(userData);
       await user.save();
       users.push(user);
-      console.log(`Created user: ${user.email}`);
+      // console.log(`Created user: ${user.email}`);
     }
 
     // Create sample furniture
@@ -387,7 +387,7 @@ async function seedDatabase() {
       const furnitureItem = new Furniture(furnitureData);
       await furnitureItem.save();
       furniture.push(furnitureItem);
-      console.log(`Created furniture: ${furnitureItem.name}`);
+      // console.log(`Created furniture: ${furnitureItem.name}`);
     }
 
     // Create sample templates
@@ -399,19 +399,19 @@ async function seedDatabase() {
 
       const template = new Template(templateData);
       await template.save();
-      console.log(`Created template: ${template.name}`);
+      // console.log(`Created template: ${template.name}`);
     }
 
-    console.log('Database seeded successfully!');
-    console.log(`Created ${users.length} users`);
-    console.log(`Created ${furniture.length} furniture items`);
-    console.log(`Created ${sampleTemplates.length} templates`);
+    // console.log('Database seeded successfully!');
+    // console.log(`Created ${users.length} users`);
+    // console.log(`Created ${furniture.length} furniture items`);
+    // console.log(`Created ${sampleTemplates.length} templates`);
 
   } catch (error) {
     console.error('Error seeding database:', error);
   } finally {
     await mongoose.connection.close();
-    console.log('Database connection closed');
+    // console.log('Database connection closed');
   }
 }
 

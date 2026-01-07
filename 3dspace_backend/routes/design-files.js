@@ -7,7 +7,7 @@
  // List files for current user
 router.get('/', authenticateToken, async (req, res) => {
   try {
-    console.log('req.user', req.user);
+    // console.log('req.user', req.user);
     const userId = (req.user && (req.user._id || req.user.id))?.toString();
     if (!userId) return res.status(401).json({ success: false, message: 'Unauthorized' });
     const files = await DesignFile.find({ user: userId }).sort({ updatedAt: -1 });

@@ -25,7 +25,7 @@ if (missingEnvVars.length > 0) {
   process.exit(1);
 }
 
-console.log('✅ All required environment variables are set');
+// console.log('✅ All required environment variables are set');
 
 // Security middleware
 app.use(helmet());
@@ -69,21 +69,21 @@ if (process.env.NODE_ENV === 'development') {
 
 // Custom detailed request logger
 app.use((req, res, next) => {
-  console.log('\n' + '='.repeat(50));
-  console.log(`🔵 ${req.method} ${req.url}`);
-  console.log(`⏰ Time: ${new Date().toISOString()}`);
-  console.log(`📍 IP: ${req.ip}`);
+  // console.log('\n' + '='.repeat(50));
+  // console.log(`🔵 ${req.method} ${req.url}`);
+  // console.log(`⏰ Time: ${new Date().toISOString()}`);
+  // console.log(`📍 IP: ${req.ip}`);
   try {
     if (req.body && typeof req.body === 'object' && Object.keys(req.body).length > 0) {
-      console.log('📦 Body:', JSON.stringify(req.body, null, 2));
+      // console.log('📦 Body:', JSON.stringify(req.body, null, 2));
     }
   } catch (_) {}
   try {
     if (req.query && typeof req.query === 'object' && Object.keys(req.query).length > 0) {
-      console.log('🔍 Query:', req.query);
+      // console.log('🔍 Query:', req.query);
     }
   } catch (_) {}
-  console.log('='.repeat(50));
+  // console.log('='.repeat(50));
   next();
 });
 
@@ -93,8 +93,8 @@ mongoose.connect(process.env.MONGODB_URI, {
   useUnifiedTopology: true,
 })
 .then(() => {
-  console.log('✅ MongoDB connected successfully');
-  console.log(`📊 Database: ${mongoose.connection.name}`);
+  // console.log('✅ MongoDB connected successfully');
+  // console.log(`📊 Database: ${mongoose.connection.name}`);
 })
 .catch(err => {
   console.error('❌ MongoDB connection error:', err);
@@ -158,7 +158,7 @@ app.use((err, req, res, next) => {
 
 // 404 handler
 app.use((req, res) => {
-  console.log(`⚠️  404 - Route not found: ${req.method} ${req.originalUrl}`);
+  // console.log(`⚠️  404 - Route not found: ${req.method} ${req.originalUrl}`);
   res.status(404).json({ 
     success: false,
     message: 'Route not found',
@@ -168,28 +168,28 @@ app.use((req, res) => {
 
 // Graceful shutdown
 process.on('SIGTERM', () => {
-  console.log('⚠️  SIGTERM signal received: closing HTTP server');
+  // console.log('⚠️  SIGTERM signal received: closing HTTP server');
   mongoose.connection.close(false, () => {
-    console.log('✅ MongoDB connection closed');
+    // console.log('✅ MongoDB connection closed');
     process.exit(0);
   });
 });
 
 process.on('SIGINT', () => {
-  console.log('\n⚠️  SIGINT signal received: closing HTTP server');
+  // console.log('\n⚠️  SIGINT signal received: closing HTTP server');
   mongoose.connection.close(false, () => {
-    console.log('✅ MongoDB connection closed');
+    // console.log('✅ MongoDB connection closed');
     process.exit(0);
   });
 });
 
 app.listen(PORT, () => {
-  console.log('\n' + '🚀'.repeat(25));
-  console.log(`🚀 Server running on port ${PORT}`);
-  console.log(`🌍 Environment: ${process.env.NODE_ENV || 'development'}`);
-  console.log(`🔗 Frontend URL: ${process.env.FRONTEND_URL || 'http://localhost:5173'}`);
-  console.log(`📡 Ready to accept requests...`);
-  console.log('🚀'.repeat(25) + '\n');
+  // console.log('\n' + '🚀'.repeat(25));
+  // console.log(`🚀 Server running on port ${PORT}`);
+  // console.log(`🌍 Environment: ${process.env.NODE_ENV || 'development'}`);
+  // console.log(`🔗 Frontend URL: ${process.env.FRONTEND_URL || 'http://localhost:5173'}`);
+  // console.log(`📡 Ready to accept requests...`);
+  // console.log('🚀'.repeat(25) + '\n');
 });
 
 module.exports = app;

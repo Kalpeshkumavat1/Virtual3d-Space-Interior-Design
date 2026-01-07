@@ -51,7 +51,7 @@ const AuthExample = () => {
     try {
       const result = await register(formData);
       if (result.success) {
-        console.log('Registration successful:', result.user);
+        // console.log('Registration successful:', result.user);
         // Redirect or show success message
       } else {
         setErrors({ general: result.message });
@@ -85,7 +85,7 @@ const AuthExample = () => {
       });
       
       if (result.success) {
-        console.log('Login successful:', result.user);
+        // console.log('Login successful:', result.user);
         // Redirect or show success message
       } else {
         setErrors({ general: result.message });
@@ -101,7 +101,7 @@ const AuthExample = () => {
   const handleLogout = async () => {
     try {
       await logout();
-      console.log('Logout successful');
+      // console.log('Logout successful');
       // Redirect to login page
     } catch (error) {
       console.error('Logout error:', error);
@@ -113,7 +113,7 @@ const AuthExample = () => {
     try {
       const result = await updateProfile(profileData);
       if (result.success) {
-        console.log('Profile updated successfully:', result.user);
+        // console.log('Profile updated successfully:', result.user);
       } else {
         console.error('Profile update failed:', result.message);
       }
@@ -125,7 +125,7 @@ const AuthExample = () => {
   // Check authentication status on component mount
   useEffect(() => {
     if (authAPI.isAuthenticated()) {
-      console.log('User is authenticated:', authAPI.getStoredUser());
+      // console.log('User is authenticated:', authAPI.getStoredUser());
     }
   }, []);
 

@@ -405,7 +405,7 @@ const callGeminiModel = async (apiKey, instructions) => {
       const payload = await response.json()
       
       // Log full response for debugging
-      console.log('Full Gemini API response:', JSON.stringify(payload, null, 2))
+    //  console.log ('Full Gemini API response:', JSON.stringify(payload, null, 2))
       
       // Check for safety ratings or blocked content
       if (payload?.promptFeedback?.blockReason) {
@@ -1939,8 +1939,8 @@ export default function Create() {
     }
     
     // Log API key status (masked for security)
-    console.log('Using Gemini API key:', apiKey ? `${apiKey.substring(0, 10)}...${apiKey.substring(apiKey.length - 4)}` : 'NOT SET')
-    console.log('Using model:', GEMINI_MODEL_NAME)
+    // console.log('Using Gemini API key:', apiKey ? `${apiKey.substring(0, 10)}...${apiKey.substring(apiKey.length - 4)}` : 'NOT SET')
+    // console.log('Using model:', GEMINI_MODEL_NAME)
     const rateState = aiRateRef.current
     const now = Date.now()
     rateState.timestamps = rateState.timestamps.filter((stamp) => now - stamp < AI_RATE_LIMIT_WINDOW_MS)
@@ -1987,7 +1987,7 @@ Design brief: ${promptText}
       const { text: aiText, tokens } = await callGeminiModel(apiKey, instructions)
       
       // Log the raw response for debugging
-      console.log('Raw AI response:', aiText?.substring(0, 500))
+      // console.log('Raw AI response:', aiText?.substring(0, 500))
       
       let parsed
       try {
